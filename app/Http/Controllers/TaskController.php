@@ -32,19 +32,19 @@ class TaskController extends Controller
     {
         Task::create($request->all());
 
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable',
-            'priority' => 'required|max:255',
-            'due_date' => 'nullable|max:255',
-        ]);
+        // $request->validate([
+        //     'title' => 'required|max:255',
+        //     'description' => 'nullable',
+        //     'priority' => 'required|max:255',
+        //     'due_date' => 'nullable|max:255',
+        // ]);
 
-        Task::create([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'priority' => $request->input('priority'),
-            'due_date' => $request->input('duedate'),
-        ]);
+        // Task::create([
+        //     'title' => $request->input('title'),
+        //     'description' => $request->input('description'),
+        //     'priority' => $request->input('priority'),
+        //     'due_date' => $request->input('duedate'),
+        // ]);
  
         return redirect()->route('tasks')->with('success', 'Task added successfully');
     }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', [AuthController::class, 'index']);
 
@@ -36,6 +37,11 @@ Route::controller(AuthController::class)->group(function () {
         Route::post('tasks/{id}/complete', 'completed')->name('tasks.complete');
         Route::get('taskshow', 'showCompleted')->name('taskshow');
 
+    });
+
+    Route::controller(TaskController::class)->prefix('tasks')->group (function() {
+        Route::get('projects', 'projects')->name('projects.index');
+        Route::get('projects/{id}','projects')->name('projects.show');
     });
 
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
