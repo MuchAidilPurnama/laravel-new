@@ -17,12 +17,13 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('priority', ['low', 'medium', 'high']);
+            $table->enum('status', ['Progress', 'Done'])->default('Progress');
             $table->date('due_date')->nullable();
             $table->boolean('completed')->default(false);
             $table->timestamp('created_at')->default(now());
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('completed_at')->nullable();
+
         });
     }
 

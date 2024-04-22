@@ -9,7 +9,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all(); // Mengambil semua proyek dari database
+        $projects = Project::all();
+        // $tasks = Task::all();
+
         return view('projects.index', compact('projects'));
     }
 

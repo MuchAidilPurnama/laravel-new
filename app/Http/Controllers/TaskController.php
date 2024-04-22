@@ -10,8 +10,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::where('completed', false)
-                     ->orderBy('priority', 'desc')
-                     ->orderBy('due_date') // Menggunakan orderBy() untuk mengurutkan berdasarkan due_date
+                     ->orderBy('description') // Menggunakan orderBy() untuk mengurutkan berdasarkan due_date
                      ->get();
 
         return view('tasks.index', compact('tasks'));
@@ -22,7 +21,11 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        $statuses = [
+            ['value' => 'progress', 'label' => 'Progress'],
+            ['value' => 'done', 'label' => 'Done'],
+        ];
+        return view('tasks.create', compact('statuses'));
     }
   
     /**
@@ -30,7 +33,18 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create($request->all());
+        // Task::create($request->all());
+
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        $task = new Task();
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->status = $request->status;
+        $task->save();
+
 
         // $request->validate([
         //     'title' => 'required|max:255',
@@ -65,8 +79,19 @@ class TaskController extends Controller
     public function edit(string $id)
     {
         $task = Task::findOrFail($id);
+
+        $statuses = [
+            [
+                'label' => 'Progress',
+                'value' => 'Progress',
+            ],
+            [
+                'label' => 'Done',
+                'value' => 'Done',
+            ]
+        ];
   
-        return view('tasks.edit', compact('task'));
+        return view('tasks.edit', compact('statuses','task'));
     }
   
     /**
@@ -77,8 +102,17 @@ class TaskController extends Controller
         // Mendapatkan instance dari Task yang ingin diperbarui
         $task = Task::findOrFail($id);
 
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->status = $request->status;
+        $task->save();
+
         // Memperbarui task yang ada di database dengan data yang baru
-        $task->update($request->all());
+        // $task->update($request->all());
 
         return redirect()->route('tasks')->with('success', 'Task updated successfully');
     }

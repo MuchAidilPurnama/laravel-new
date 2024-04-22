@@ -35,23 +35,12 @@
       <span>Tasks</span></a>
   </li>
   
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Users</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Create User</a>
-                <a class="dropdown-item" href="#">Edit User</a>
-                <a class="dropdown-item" href="#">Show User</a>
-            </div>
-        </li>
-
-  {{-- <li class="nav-item">
-    <a class="nav-link" href="/profile">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('users') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Profile</span></a>
-  </li> --}}
+      <span>Users</span></a>
+  </li>
+
   
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">

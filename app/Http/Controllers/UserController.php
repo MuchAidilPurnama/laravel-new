@@ -1,17 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -19,7 +17,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $statuses = [
+            ['value' => 'admin', 'label' => 'Admin'],
+            ['value' => 'user', 'label' => 'User'],
+        ];
+        return view('users.create', compact('statuses'));
     }
 
     /**
@@ -27,7 +29,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->level = $request->level;
+        $user->password = $request->password;
+        $user->save();
+
+        return redirect()->route('users')->with('success', 'Users added successfully');
     }
 
     /**
@@ -43,7 +56,20 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $statuses = [
+            [
+                'label' => 'Admin',
+                'value' => 'admin',
+            ],
+            [
+                'label' => 'Done',
+                'value' => 'done',
+            ]
+        ];
+  
+        return view('users.edit', compact('statuses','user'));
     }
 
     /**
@@ -51,14 +77,28 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->level = $request->level;
+        $user->password = $request->password;
+        $user->save();
+
+
+        return redirect()->route('users')->with('success', 'User updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+  
+        $user->delete();
+  
+        return redirect()->route('users')->with('success', 'user deleted successfully');
     }
 }

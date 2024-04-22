@@ -2,7 +2,7 @@
 @section('contents')
 <head>
     <!-- Other meta tags and CSS links -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,6 +20,8 @@
         <!-- Rest of your content -->
     </div>
 
+   
+
     <div class="container">
         <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
         <a href="{{ route('taskshow') }}" class="btn btn-secondary mb-3">Show Completed Tasks</a>
@@ -29,17 +31,17 @@
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Priority</th>
+                    <th>Status</th>
                     <th>Due Date</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tasks as $task)
+                @foreach ($tasks as $task)  
                 <tr>
                     <td>{{ $task->title }}</td>
                     <td>{{ $task->description }}</td>
-                    <td>{{ $task->priority }}</td>
+                    <td>{{ $task->status }}</td>
                     <td>{{ $task->due_date }}</td>
                     <td>
                         <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-primary btn-sm">
@@ -69,9 +71,9 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> 
 
     
-</body>
+ </body>
 
 @endsection

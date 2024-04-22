@@ -67,6 +67,7 @@
                                   </a>
                                 </td>
                             </tr>
+                            {{-- @endforeach --}}
                             <!-- Tambahkan baris lain sesuai kebutuhan -->
                         </tbody>
                     </table>
@@ -79,8 +80,8 @@
           <div class="col-12 col-sm-6 col-md-12">
               <div class="card mb-3">
                   <div class="card-body">
+                    <h5 class="card-title">Total Projects</h5>
                       <p class="card-text">5</p>
-                      <h5 class="card-title">Total Projects</h5>
                       <i class="fas fa-layer-group fa-2x text-primary"></i>
                   </div>
               </div> 
