@@ -18,11 +18,13 @@
       <span>Dashboard</span></a>
   </li>
   
+
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('tasks') }}">
+    <a class="nav-link" href="{{ route('users.tasks') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Tasks</span></a>
   </li>
+
   
   <li class="nav-item">
     <a class="nav-link" href="/profile">

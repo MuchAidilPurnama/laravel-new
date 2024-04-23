@@ -1,20 +1,20 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-  
-use Illuminate\Http\Request;
 use App\Models\Task;
- 
-class TaskController extends Controller
+use Illuminate\Http\Request;
+
+class AdminTaskController extends Controller
 {
     public function index()
-{
-    $tasks = Task::where('completed', false)
-                 ->orderBy('description')
-                 ->get();
+    {
 
-    return view('users.tasks.index', compact('tasks')); // Perhatikan cara penulisan nama view
-}
+        $tasks = Task::where('completed','user_id', auth()->id(), false)
+                     ->orderBy('description') // Menggunakan orderBy() untuk mengurutkan berdasarkan due_date
+                     ->get();
+
+        return view('admin.tasks.index', compact('tasks'));
+    }
   
     /**
      * Show the form for creating a new resource.
@@ -25,7 +25,7 @@ class TaskController extends Controller
             ['value' => 'progress', 'label' => 'Progress'],
             ['value' => 'done', 'label' => 'Done'],
         ];
-        return view('users.tasks.create', compact('statuses'));
+        return view('admin.tasks.create', compact('statuses'));
     }
   
     /**
@@ -60,7 +60,7 @@ class TaskController extends Controller
         //     'due_date' => $request->input('duedate'),
         // ]);
  
-        return redirect()->route('users.tasks')->with('success', 'Task added successfully');
+        return redirect()->route('admin.tasks')->with('success', 'Task added successfully');
     }
   
     /**
@@ -70,7 +70,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
   
-        return view('users.tasks.show', compact('task'));
+        return view('admin.tasks.show', compact('task'));
     }
   
     /**
@@ -91,7 +91,7 @@ class TaskController extends Controller
             ]
         ];
   
-        return view('users.tasks.edit', compact('statuses','task'));
+        return view('admin.tasks.edit', compact('statuses','task'));
     }
   
     /**
@@ -115,7 +115,7 @@ class TaskController extends Controller
         // Memperbarui task yang ada di database dengan data yang baru
         // $task->update($request->all());
 
-        return redirect()->route('users.tasks')->with('success', 'Task updated successfully');
+        return redirect()->route('admin.tasks')->with('success', 'Task updated successfully');
     }
   
     /**
@@ -127,7 +127,7 @@ class TaskController extends Controller
   
         $task->delete();
   
-        return redirect()->route('users.tasks')->with('success', 'task deleted successfully');
+        return redirect()->route('admin.tasks')->with('success', 'task deleted successfully');
     }
 
     public function completed(string $id)
@@ -141,7 +141,7 @@ class TaskController extends Controller
             'completed_at' => now(),
         ]);
 
-        return redirect()->route('users.tasks')->with('success', 'Task completed successfully');
+        return redirect()->route('admin.tasks')->with('success', 'Task completed successfully');
     }
 
     public function showCompleted()
@@ -151,7 +151,7 @@ class TaskController extends Controller
                               ->orderBy('completed_at', 'desc') // Menggunakan orderBy() untuk mengurutkan berdasarkan completed_at
                               ->get();
 
-        return view('users.taskshow', compact('completedTasks'));
+        return view('admin.taskshow', compact('completedTasks'));
     }
 
     

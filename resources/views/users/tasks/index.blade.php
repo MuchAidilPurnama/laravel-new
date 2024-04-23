@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('layouts.app')
 @section('contents')
 <head>
     <!-- Other meta tags and CSS links -->
@@ -23,8 +23,8 @@
    
 
     <div class="container">
-        <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
-        <a href="{{ route('taskshow') }}" class="btn btn-secondary mb-3">Show Completed Tasks</a>
+        <a href="{{ route('users.tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
+        <a href="{{ route('users.taskshow') }}" class="btn btn-secondary mb-3">Show Completed Tasks</a>
 
         <table class="table table-bordered">
             <thead class="thead-dark">
@@ -44,10 +44,10 @@
                     <td>{{ $task->status }}</td>
                     <td>{{ $task->due_date }}</td>
                     <td>
-                        <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-primary btn-sm">
+                        <a href="{{ route('users.tasks.edit', $task->id) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-edit"></i> Edit
                         </a>
-                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
+                        <form action="{{ route('users.tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"
@@ -56,7 +56,7 @@
                             </button>
                         </form>
                         @if (!$task->completed)
-                        <form action="{{ route('tasks.complete', $task->id) }}" method="POST" style="display: inline;">
+                        <form action="{{ route('users.tasks.complete', $task->id) }}" method="POST" style="display: inline;">
                             @csrf
                             <button type="submit" class="btn btn-warning btn-sm">
                                 <i class="fa fa-check"></i> Complete

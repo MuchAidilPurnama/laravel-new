@@ -29,16 +29,17 @@
     </div>
 </li>
   
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('tasks') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Tasks</span></a>
-  </li>
-  
+
+<li class="nav-item">
+  <a class="nav-link" href="{{ route('admin.tasks') }}">
+    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <span>Admin Tasks</span></a>
+</li>
+
   <li class="nav-item">
     <a class="nav-link" href="{{ route('users') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Users</span></a>
+      <span>Users Management</span></a>
   </li>
 
   

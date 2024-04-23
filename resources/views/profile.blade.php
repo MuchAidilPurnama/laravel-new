@@ -6,7 +6,8 @@
     <h1 class="mb-0">Profile</h1>
     <hr />
  
-    <form method="POST" enctype="multipart/form-data" id="profile_setup_frm" action="" >
+    <form method="POST" action="{{ route('profile.update') }}" >
+        @csrf
     <div class="row">
         <div class="col-md-12 border-right">
             <div class="p-3 py-5">
@@ -28,7 +29,7 @@
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <label class="labels">Phone</label>
-                        <input type="text" name="phone" class="form-control" placeholder="Phone Number" value="{{ auth()->user()->phone }}">
+                        <input type="number" name="phone" class="form-control" placeholder="Phone Number" value="{{ auth()->user()->phone }}">
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Address</label>

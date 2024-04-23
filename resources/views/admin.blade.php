@@ -1,6 +1,7 @@
 @extends('admin.app')
 
 @section('contents')
+
 <!-- Info boxes -->
 <div class="col-12">
     <div class="card">
@@ -10,93 +11,136 @@
     </div>
 </div>
 <hr>
+                   <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-secondary text-white h-100">
+                                    <div class="card-body d-flex flex-column justify-content-center">
+                                        <div class="mb-4">
+                                            <div class="float-left mini-stat-img mr-4">
+                                                <span class="ti-id-badge" style="font-size: 30px"></span>
+                                            </div>
+                                            <h5 class="font-16 text-uppercase mt-0 text-white-50">Total <br> Employees</h5> 
+                                        </div>
+										<!-- Log on to codeastro.com for more projects! -->
+                                        {{-- <h1 class="font-500 float-right">{{$data[0]}} </h1> --}}
+                                        <h1 class="font-500 float-right"> 10 </h1>
+                                        <span class="ti-user float-left" style="font-size: 71px"></span>
+                                        <!-- <div class="pt-2">
+                                            <div class="float-right">
+                                                <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                                            </div>
+                                            <p class="text-white-50 mb-0">More info</p>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
 
-<div class="row">
-    <div class="col-md-8">
-        <div class="card card-outline card-success">
-            <div class="card-header">
-                <b>Project Progress</b>
-            </div>
-            <div class="card-body p-0">
-                <div class="table-responsive">
-                    <table class="table m-0 table-hover">
-                        <colgroup>
-                            <col width="5%">
-                            <col width="30%">
-                            <col width="35%">
-                            <col width="15%">
-                            <col width="15%">
-                        </colgroup>
-                        <thead>
-                            <th>#</th>
-                            <th>Project</th>
-                            <th>Progress</th>
-                            <th>Status</th>
-                            <th></th>
-                        </thead>
-                        <tbody>
-                          {{-- @foreach($projects as $project) --}}
-                            <tr>
-                                {{-- <td>{{ $project->id }}</td> --}}
-                                <td>1</td>
-                                <td>
-                                    {{-- <a>{{ $project->name }}</a> --}}
-                                    <a>name</a>
-                                    <br>
-                                    {{-- <small>Due: Due: {{ $project->due_date }}</small> --}}
-                                    <small>Due: Due: 2024</small>
-                                </td>
-                                <td class="project_progress">
-                                  <div class="progress progress-sm">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" >
-                                      {{-- <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ $project->progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $project->progress }}%"> --}}
-                                      </div>
-                                  </div>
-                                  {{-- <small>{{ $project->progress }}% Complete</small> --}}
-                                  <small>% Complete</small>
-                                </td>
-                                <td class="project-state">
-                                    {{-- <span class="badge badge-info">{{ $project->status }}</span> --}}
-                                </td>
-                                <td>
-                                    {{-- <a class="btn btn-primary btn-sm" href="{{ route('projects.show', $project->id) }}">
-                                        <i class="fas fa-folder"></i> View
-                                    </a> --}}
-                                    <a class="btn btn-primary btn-sm" >
-                                      <i class="fas fa-folder"></i> View
-                                  </a>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
-                            <!-- Tambahkan baris lain sesuai kebutuhan -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-      <div class="row">
-          <div class="col-12 col-sm-6 col-md-12">
-              <div class="card mb-3">
-                  <div class="card-body">
-                    <h5 class="card-title">Total Projects</h5>
-                      <p class="card-text">5</p>
-                      <i class="fas fa-layer-group fa-2x text-primary"></i>
-                  </div>
-              </div> 
-          </div>
-          <div class="col-12 col-sm-6 col-md-12">
-              <div class="card mb-3">
-                  <div class="card-body">
-                      <h5 class="card-title">Total Tasks</h5>
-                      <p class="card-text">10</p>
-                      <i class="fas fa-tasks fa-2x text-primary flex flex-end"></i>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  
-</div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-secondary text-white h-100">
+                                    <div class="card-body d-flex flex-column justify-content-center">
+                                        <div class="mb-4">
+                                            <div class="float-left mini-stat-img mr-4">
+                                                <i class=" ti-check-box " style="font-size: 30px"></i>
+                                            </div>
+                                            <h5 class="font-16 text-uppercase mt-0 text-white-50">On Time <br> Today</h5>
+                                            
+                                             
+                                        </div>
+										<!-- Log on to codeastro.com for more projects! -->
+                                        {{-- <h1 class="font-500 float-right">{{$data[1]}} <i class=" text-success ml-2"></i></h1> --}}
+                                        <h1 class="font-500 float-right"> 2<i class=" text-success ml-2"></i></h1>
+                                            {{-- <span class="peity-donut float-left" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72">{{$data[1]}}/{{count($data)}}</span> --}}
+                                            <span class="peity-donut float-left" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72"></span>
+                                        <!-- <div class="pt-2">
+                                            <div class="float-right">
+                                                <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                                            </div>
+        
+                                            <p class="text-white-50 mb-0">More info</p>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-secondary text-white h-100">
+                                    <div class="card-body d-flex flex-column justify-content-center">
+                                        <div class="mb-4">
+                                            <div class="float-left mini-stat-img mr-4">
+                                                <i class="ti-alert" style="font-size: 30px"></i>
+                                            </div>
+                                            <h5 class="font-16 text-uppercase mt-0 text-white-50">Late <br> Today</h5>
+                                            
+                                             
+                                        </div>
+										<!-- Log on to codeastro.com for more projects! -->
+                                        {{-- <h1 class="font-500 float-right">{{$data[2]}}<i class=" text-success ml-2"></i></h1> --}}
+                                        <h1 class="font-500 float-right">5<i class=" text-success ml-2"></i></h1>
+                                            <span class="peity-donut float-left" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72"></span>
+                                        <!-- <div class="pt-2">
+                                            <div class="float-right">
+                                                <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                                            </div>
+        
+                                            <p class="text-white-50 mb-0">More info</p>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-secondary text-white h-100">
+                                    <div class="card-body d-flex flex-column justify-content-center">
+                                        <div class="mb-4">
+                                            <div class="float-left mini-stat-img mr-4">
+                                                <i class="ti-alarm-clock" style="font-size: 30px"></i>
+                                            </div>
+                                            <h6  class="font-16 text-uppercase mt-0 text-white-50" >On Time <br> Percentage</h6>
+                                            
+                                                       
+                                        </div>
+                                        {{-- <h2 class="font-500 float-right">{{$data[3]}}%<i class="text-danger ml-2"></i></h2> --}}
+                                        <h2 class="font-500 float-right">50%<i class="text-danger ml-2"></i></h2>
+                                        {{-- <span class="peity-donut float-left" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72">{{$data[3]}}/{{count($data)}}</span> --}}
+                                        <span class="peity-donut float-left" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72"></span>
+                                        <!-- <div class="pt-2">
+                                            <div class="float-right">
+                                                <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                                            </div>
+        
+                                            <p class="text-white-50 mb-0">More info</p>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+						<!-- Log on to codeastro.com for more projects! -->
+
+
+                        <div class="row">
+                            <div class="col-xl-9">
+                                <div class="card">
+                                    <!-- <div class="card-body">
+                                        <h4 class="mt-0 header-title mb-5">Monthly Report</h4>
+                                        
+                                    </div> -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+
+                            <div class="col-xl-3">
+                                <div class="card">
+                                    <!-- <div class="card-body">
+                                        <div>
+                                            <h4 class="mt-0 header-title mb-4">Sales Analytics</h4>
+                                        </div>
+                                       
+                                      
+                                       </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        
+                        
+                        <!-- end row -->
 @endsection

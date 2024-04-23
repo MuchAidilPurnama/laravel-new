@@ -9,10 +9,10 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $project = Project::all();
         // $tasks = Task::all();
 
-        return view('projects.index', compact('projects'));
+        return view('project.index', compact('project'));
     }
 
     /**
@@ -23,20 +23,20 @@ class ProjectController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $request->validate([
+        'name' => 'required|max:255',
+        'due_date' => 'required|date',
+    ]);
 
-    public function show($id)
-    {
-        $project = Project::find($id); // Cari proyek berdasarkan ID
+    $project = new Project();
+    $project->name = $request->name;
+    $project->due_date = $request->due_date;
+    $project->save();
 
-        return view('projects.show', compact('project'));
-    }
+    return redirect()->route('project.index');
+}
 
     /**
      * Show the form for editing the specified resource.
