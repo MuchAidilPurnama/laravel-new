@@ -43,6 +43,7 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->description = $request->description;
         $task->status = $request->status;
+        $task->due_date = $request->due_date;
         $task->save();
 
 
@@ -110,6 +111,7 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->description = $request->description;
         $task->status = $request->status;
+        $task->due_date = $request->due_date;
         $task->save();
 
         // Memperbarui task yang ada di database dengan data yang baru

@@ -140,7 +140,7 @@
                             </div>
                         </div>
                         <!-- end row -->
-                        
+                        @include('project.index')
                         
                         <!-- end row -->
 @endsection

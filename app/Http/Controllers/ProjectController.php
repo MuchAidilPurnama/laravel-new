@@ -15,12 +15,10 @@ class ProjectController extends Controller
         return view('project.index', compact('project'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     public function store(Request $request)
@@ -38,25 +36,25 @@ class ProjectController extends Controller
     return redirect()->route('project.index');
 }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    public function show(string $id)
+    {
+        $project = Project::all();
+  
+        return view('project.show', compact('project'));
+    }
+   
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
         //

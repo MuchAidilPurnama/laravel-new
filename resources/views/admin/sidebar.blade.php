@@ -24,21 +24,21 @@
         <span>Project</span>
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="#">Add New</a>
-        <a class="dropdown-item" href="#">List</a>
+        <a class="dropdown-item" href="{{ route('project.create') }}">Add New</a>
+        {{-- <a class="dropdown-item" href="">List</a> --}}
     </div>
 </li>
   
 
 <li class="nav-item">
   <a class="nav-link" href="{{ route('admin.tasks') }}">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <i class="fas fa-fw fa-calendar-check"></i>
     <span>Admin Tasks</span></a>
 </li>
 
   <li class="nav-item">
     <a class="nav-link" href="{{ route('users') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <i class="fas fa-fw fa-user-cog"></i>
       <span>Users Management</span></a>
   </li>
 

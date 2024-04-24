@@ -54,9 +54,11 @@ Route::controller(AuthController::class)->group(function () {
     });
 
 
-    Route::controller(ProjectController::class)->prefix('project')->group (function() {
-        Route::get('', 'index')->name('project');
-        Route::get('project/{id}','project')->name('project.show');
+    Route::controller(ProjectController::class)->prefix('')->group (function() {
+        Route::get('project', 'index')->name('project');
+        Route::get('project/create', 'create')->name('project.create');
+        Route::post('project/store', 'store')->name('project.store');
+        Route::get('project','show')->name('project.show');
     });
 
     Route::controller(UserController::class)->prefix('users')->group (function() {
